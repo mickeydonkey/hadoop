@@ -50,6 +50,7 @@ public class BlockPlacementPolicyWithUpgradeDomain extends
         upgradeDomainFactor = conf.getInt(
                 DFSConfigKeys.DFS_UPGRADE_DOMAIN_FACTOR,
                 DFSConfigKeys.DFS_UPGRADE_DOMAIN_FACTOR_DEFAULT);
+	LOG.info("Set placement policy to upgrade domain");
     }
 
     //    hack:
@@ -71,8 +72,10 @@ public class BlockPlacementPolicyWithUpgradeDomain extends
             String updatedomain = getUpgradeDomainWithDefaultValue(node);
             if(updatedomain.equals("PLACEMENT_BLKLST")){
                 isGoodTarget = false;
-                LOG.warn("PLACEMENT_BLKLST includes" + node);
-            }
+                LOG.info("PLACEMENT_BLKLST includes" + node);
+            } else {
+		LOG.info("Node has upgrade domain " + updatedomain);
+	    }
         }
         return isGoodTarget;
     }

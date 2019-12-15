@@ -132,6 +132,7 @@ public class BlockPlacementPolicyDefault extends BlockPlacementPolicy {
             DFS_NAMENODE_BLOCKPLACEMENTPOLICY_DEFAULT_PREFER_LOCAL_NODE_KEY,
         DFSConfigKeys.
             DFS_NAMENODE_BLOCKPLACEMENTPOLICY_DEFAULT_PREFER_LOCAL_NODE_DEFAULT);
+    LOG.info("Set placement policy to default");
   }
 
   @Override
